@@ -2,6 +2,8 @@
 // variables globales 
 let ataqueJugador;
 let ataqueOponente;
+let vidasJugador = 3
+let vidasOponente = 3
 
 //función que inicia el juego y es ejecutada al final cuando ya ha cargado todo el contenido de nuestr página 
 
@@ -89,16 +91,39 @@ function ataqueOponenteAleatorio() {
 // Ganaste, perdiste o empataste?
 
 function combate () {
+  let spanVidaJugador = document.getElementById('vidaJugador')
+  let spanVidaOponente = document.getElementById('vidaOponente')
+
   if(ataqueOponente == ataqueJugador){
     crearMensaje ("EMPATE")
   }else if(ataqueJugador== 'Fuego' && ataqueOponente=='Tierra'){
     crearMensaje("GANASTE")
+    vidasOponente--
+    spanVidaOponente.innerHTML = vidasOponente
   }else if(ataqueJugador=='Agua' && ataqueOponente=='Fuego'){
     crearMensaje("GANASTE")
+    vidasOponente--
+    spanVidaOponente.innerHTML = vidasOponente
   }else if(ataqueJugador=='Tierra' && ataqueOponente=='Agua'){
     crearMensaje("GANASTE")
+    vidasOponente--
+    spanVidaOponente.innerHTML = vidasOponente
   }else{
     crearMensaje("PERDISTE")
+    vidasJugador --
+    spanVidaJugador.innerHTML = vidasJugador
+  }
+  
+  revisarVidas()
+}
+
+// Quién ganó el juego?
+
+function revisarVidas() {
+  if (vidasOponente == 0) {
+    aler("FELICITACIONES!!! Ganaste :)")
+  } else if (vidasJugador == 0){
+    alert("LO SIENTO!!! Perdiste :(")
   }
 }
 
@@ -110,6 +135,15 @@ function crearMensaje (resultado) {
   
   sectionMensaje.appendChild(parrafo);
 }
+
+//function crearMensajeFinal (resultadoFinal) {
+//  let sectionMensaje = document.getElementById('mensajes');
+//
+//  let parrafo = document.createElement('p');
+//  parrafo.innerHTML = resultadoFinal;
+  
+//  sectionMensaje.appendChild(parrafo);
+//}
 
 // selección aleatoria 
 
