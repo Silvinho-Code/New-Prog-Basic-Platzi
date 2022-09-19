@@ -83,14 +83,30 @@ function ataqueOponenteAleatorio() {
     ataqueOponente = 'Tierra';
   }
   
-  crearMensaje();
+  combate(alert);
 }
 
-function crearMensaje () {
+// Ganaste, perdiste o empataste?
+
+function combate () {
+  if(ataqueOponente == ataqueJugador){
+    crearMensaje ("EMPATE")
+  }else if(ataqueJugador== 'Fuego' && ataqueOponente=='Tierra'){
+    crearMensaje("GANASTE")
+  }else if(ataqueJugador=='Agua' && ataqueOponente=='Fuego'){
+    crearMensaje("GANASTE")
+  }else if(ataqueJugador=='Tierra' && ataqueOponente=='Agua'){
+    crearMensaje("GANASTE")
+  }else{
+    crearMensaje("PERDISTE")
+  }
+}
+
+function crearMensaje (resultado) {
   let sectionMensaje = document.getElementById('mensajes');
   
   let parrafo = document.createElement('p');
-  parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota oponente atacó con ' + ataqueOponente + '. PENDIENTE';
+  parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota oponente atacó con ' + ataqueOponente + '. ' + resultado;
   
   sectionMensaje.appendChild(parrafo);
 }
