@@ -8,6 +8,14 @@ let vidasOponente = 3
 //función que inicia el juego y es ejecutada al final cuando ya ha cargado todo el contenido de nuestr página 
 
 function iniciarJuego(){
+
+  //así ocultamos la seccion que aún no necesitamos mostrar
+  let sectionSelectAtack = document.getElementById('seleccionar-ataque');
+  sectionSelectAtack.style.display = 'none';
+  // igual a la anterior
+  let sectionReiniciar = document.getElementById('reiniciar');
+  sectionReiniciar.style.display = 'none';
+
   let botonMascotaJugador = document.getElementById('boton-mascota');
   botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
   
@@ -17,11 +25,23 @@ function iniciarJuego(){
   botonAgua.addEventListener('click', ataqueAgua);
   let botonTierra = document.getElementById('boton-tierra');
   botonTierra.addEventListener('click', ataqueTierra);
+
+  let botonReiniciar = document.getElementById('boton-reiniciar')
+  botonReiniciar.addEventListener('click', reiniciarJuego);
 }
 
 // selección de mascotas 
 
 function seleccionarMascotaJugador(){
+
+  //así ocultamos la seccion que aún no necesitamos mostrar
+  let sectionSelectmascota = document.getElementById('seleccionar-mascota');
+  sectionSelectmascota.style.display = 'none';
+
+  //así mostramos la seccion que necesitamos
+  let sectionSelectAtack = document.getElementById('seleccionar-ataque');
+  sectionSelectAtack.style.display = 'block';
+
   let inputHipodoge = document.getElementById('hipodoge');
   let inputCapipepo = document.getElementById('capipepo');
   let inputRatigueya = document.getElementById('ratigueya');
@@ -121,9 +141,9 @@ function combate () {
 
 function revisarVidas() {
   if (vidasOponente == 0) {
-    aler("FELICITACIONES!!! Ganaste :)")
+    crearMensajeFinal("FELICITACIONES!!! Ganaste :)")
   } else if (vidasJugador == 0){
-    alert("LO SIENTO!!! Perdiste :(")
+    crearMensajeFinal("LO SIENTO!!! Perdiste :(")
   }
 }
 
@@ -136,16 +156,38 @@ function crearMensaje (resultado) {
   sectionMensaje.appendChild(parrafo);
 }
 
-//function crearMensajeFinal (resultadoFinal) {
-//  let sectionMensaje = document.getElementById('mensajes');
-//
-//  let parrafo = document.createElement('p');
-//  parrafo.innerHTML = resultadoFinal;
-  
-//  sectionMensaje.appendChild(parrafo);
-//}
+// MENSAJE FINAL
 
-// selección aleatoria 
+function crearMensajeFinal (resultadoFinal) {
+  // Mensaje final
+  let sectionMensaje = document.getElementById('mensajes');
+
+  // crea un nuevo párrafo en lugar del original
+  let parrafo = document.createElement('p');
+  parrafo.innerHTML = resultadoFinal;
+  
+  sectionMensaje.appendChild(parrafo);
+
+  // para desabilitar los botones cuando las vidas lleguena cero
+  let botonFuego = document.getElementById('boton-fuego');
+  botonFuego.disabled = true;
+  let botonAgua = document.getElementById('boton-agua');
+  botonAgua.disabled = true;
+  let botonTierra = document.getElementById('boton-tierra');
+  botonTierra.disabled = true;
+
+  //así mostramos la seccion que necesitamos
+  let sectionReiniciar = document.getElementById('reiniciar');
+  sectionReiniciar.style.display = 'block';
+}
+
+// reinicio del juego
+
+function reiniciarJuego() {
+  location.reload();
+}
+
+ //selección aleatoria 
 
 function aleatorio (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
