@@ -15,6 +15,9 @@ function iniciarJuego(){
   // igual a la anterior
   let sectionReiniciar = document.getElementById('reiniciar');
   sectionReiniciar.style.display = 'none';
+  //igal a la anterior
+  let botonSelecMascota = document.getElementById('boton-mascota');
+  botonSelecMascota.style.display = 'none';
 
   let botonMascotaJugador = document.getElementById('boton-mascota');
   botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
