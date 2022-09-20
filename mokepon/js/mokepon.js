@@ -15,8 +15,8 @@ function iniciarJuego(){
   // igual a la anterior
   let sectionReiniciar = document.getElementById('reiniciar');
   sectionReiniciar.style.display = 'none';
-  //igal a la anterior
-  let botonSelecMascota = document.getElementById('boton-mascota');
+  //ocultamos el boton hasta que selecione la mascota 
+  let botonSelecMascota = document.getElementById('botonMascota');
   botonSelecMascota.style.display = 'none';
 
   let botonMascotaJugador = document.getElementById('boton-mascota');
@@ -36,7 +36,6 @@ function iniciarJuego(){
 // selección de mascotas 
 
 function seleccionarMascotaJugador(){
-
   //así ocultamos la seccion que aún no necesitamos mostrar
   let sectionSelectmascota = document.getElementById('seleccionar-mascota');
   sectionSelectmascota.style.display = 'none';
