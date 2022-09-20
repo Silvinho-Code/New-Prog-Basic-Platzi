@@ -62,6 +62,10 @@ function seleccionarMascotaJugador(){
    // llamamiento de la función dentro esta otra función de selección de mascotas 
  
    seleccionarMascotaEnenmigo();
+   
+  //ocultamos el boton hasta que selecione la mascota 
+  let botonSelecMascota = document.getElementById('botonMascota');
+  botonSelecMascota.style.display = 'block';
 }
 
 // selección de mascota enemiga
