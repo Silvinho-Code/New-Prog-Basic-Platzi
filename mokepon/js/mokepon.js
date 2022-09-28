@@ -9,15 +9,12 @@ let vidasOponente = 3
 
 function iniciarJuego(){
 
-  //así ocultamos la seccion que aún no necesitamos mostrar
+  //así OCULTAMOS la SECCION que aún no necesitamos mostrar
   let sectionSelectAtack = document.getElementById('seleccionar-ataque');
   sectionSelectAtack.style.display = 'none';
   // igual a la anterior
   let sectionReiniciar = document.getElementById('reiniciar');
   sectionReiniciar.style.display = 'none';
-  //ocultamos el boton hasta que selecione la mascota 
-  let botonSelecMascota = document.getElementById('botonMascota');
-  botonSelecMascota.style.display = 'none';
 
   let botonMascotaJugador = document.getElementById('boton-mascota');
   botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
@@ -36,11 +33,10 @@ function iniciarJuego(){
 // selección de mascotas 
 
 function seleccionarMascotaJugador(){
-  //así ocultamos la seccion que aún no necesitamos mostrar
+  //así OCULTAMOS la seccion que aún no necesitamos mostrar
   let sectionSelectmascota = document.getElementById('seleccionar-mascota');
   sectionSelectmascota.style.display = 'none';
-
-  //así mostramos la seccion que necesitamos
+  //así MOSTRAMOS la seccion que necesitamos
   let sectionSelectAtack = document.getElementById('seleccionar-ataque');
   sectionSelectAtack.style.display = 'block';
 
@@ -49,23 +45,19 @@ function seleccionarMascotaJugador(){
   let inputRatigueya = document.getElementById('ratigueya');
   let spanMascotaJugador = document.getElementById('mascotaJugador');
   
-   if (inputHipodoge.checked) {
-     spanMascotaJugador.innerHTML = 'Hipodoge';
-   }else if (inputCapipepo.checked){
-     spanMascotaJugador.innerHTML = 'Capipepo';
-   }else if (inputRatigueya.checked){
-     spanMascotaJugador.innerHTML = 'Ratigueya';
-   }else{
-     alert ("Selecciona una mascota ");
-   }
-   
-   // llamamiento de la función dentro esta otra función de selección de mascotas 
- 
-   seleccionarMascotaEnenmigo();
-   
-  //ocultamos el boton hasta que selecione la mascota 
-  let botonSelecMascota = document.getElementById('botonMascota');
-  botonSelecMascota.style.display = 'block';
+  if (inputHipodoge.checked) {
+    spanMascotaJugador.innerHTML = 'Hipodoge';
+  }else if (inputCapipepo.checked){
+    spanMascotaJugador.innerHTML = 'Capipepo';
+  }else if (inputRatigueya.checked){
+    spanMascotaJugador.innerHTML = 'Ratigueya';
+  }else{
+    alert ("Selecciona una mascota ");
+  }
+
+  // llamamiento de la función dentro esta otra función de selección de mascotas 
+
+  seleccionarMascotaEnenmigo();
 }
 
 // selección de mascota enemiga
